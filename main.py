@@ -8,6 +8,7 @@ def load_dictionary():
 
 def find_word(input_word):
     dictionary = load_dictionary()
+    input_word = input_word.lower()
     if input_word in dictionary:
         print(f"{input_word.capitalize()}:")
         for definition in dictionary.get(input_word):
