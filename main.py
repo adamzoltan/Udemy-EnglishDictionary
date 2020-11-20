@@ -17,7 +17,9 @@ def find_word(input_word):
     else:
         close_match = get_close_matches(input_word, dictionary.keys(), n=1)
         if close_match:
-            print(f"The word doesn't exist in the dictionary. Did you mean {close_match[0]}?")
+            confirmation = input(f"The word doesn't exist in the dictionary. Did you mean {close_match[0]}? Press Y or N.")
+            if confirmation.lower() == "y":
+                find_word(close_match[0])
         else:
             print("The word doesn't exist in the dictionary.")
 
