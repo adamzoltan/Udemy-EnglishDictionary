@@ -1,16 +1,19 @@
-# This is a sample Python script.
-
-# Press ⇧F10 to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+import json
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+def load_dictionary():
+    dictionary = json.load(open("Data/words.json"))
+    return dictionary
 
 
-# Press the green button in the gutter to run the script.
+def find_word(input_word):
+    dictionary = load_dictionary()
+    print(f"{input_word.capitalize()}:")
+    for definition in dictionary[input_word]:
+        print(definition)
+
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    word = input("Enter a word: ")
+    find_word(word)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
